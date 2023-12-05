@@ -5,7 +5,7 @@ A `netcat` that understands HTTP
 ## Installation
 
 ```bash
-go install gitub.com/pyrsos-dev/httpcat
+go install github.com/pyrsos-dev/httpcat
 ```
 
 Or
