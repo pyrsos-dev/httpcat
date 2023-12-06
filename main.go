@@ -145,7 +145,7 @@ func main() {
 	} else if opts.body == DESTINATION_STDERR {
 		bodyDest = os.Stderr
 	} else {
-		bodyDest, err = os.Open(opts.body)
+		bodyDest, err = os.Create(opts.body)
 		if err != nil {
 			logger.Error("Could not open file for writing the request bodies",
 				slog.String("file", opts.body),
