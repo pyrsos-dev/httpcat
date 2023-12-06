@@ -135,7 +135,7 @@ func main() {
 
 	logger, err := initLogging(opts)
 	if err != nil {
-		logger.Error("Could not initialize logging: %v", err)
+		logger.Error("Could not initialize logging", slog.Any("error", err))
 		os.Exit(1)
 	}
 
@@ -147,7 +147,10 @@ func main() {
 	} else {
 		bodyDest, err = os.Open(opts.body)
 		if err != nil {
-			logger.Error("Could not open file %v for writing the request bodies: %v", opts.body, err)
+			logger.Error("Could not open file for writing the request bodies",
+				slog.String("file", opts.body),
+				slog.Any("error", err),
+			)
 			os.Exit(1)
 		}
 	}
